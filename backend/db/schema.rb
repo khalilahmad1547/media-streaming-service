@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_23_194242) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_25_101312) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_23_194242) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "movies", force: :cascade do |t|
+    t.string "title", default: "", null: false
+    t.integer "length", default: 0, null: false
+    t.string "imdb_id", default: "", null: false
+    t.text "description", default: "", null: false
+    t.string "release_date", default: "", null: false
+    t.integer "popularity", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["title", "imdb_id"], name: "index_movies_on_title_and_imdb_id", unique: true
+    t.index ["title", "release_date"], name: "index_movies_on_title_and_release_date", unique: true
   end
 
   create_table "roles", force: :cascade do |t|
