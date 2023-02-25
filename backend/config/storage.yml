@@ -12,7 +12,7 @@ minio:
   secret_access_key: <%= ENV['MINIO_ACCESS_KEY'] %>
   region: us-east-1
   bucket: <%= ENV['MINIO_BUCKET_NAME'] %>
-  endpoint: <%= ENV['DATABASE_HOST'] %>
+  endpoint: <%= ENV['MINIO_SERVER_URL'] %>
   force_path_style: true
 
 # Remember not to checkin your GCS keyfile to a repository
