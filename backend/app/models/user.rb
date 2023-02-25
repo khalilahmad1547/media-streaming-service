@@ -9,6 +9,8 @@ class User < ApplicationRecord
          :jwt_authenticatable, jwt_revocation_strategy: self
 
   has_one :user_role, dependent: :destroy
+  has_many :uploads, dependent: :destroy
+  has_many :movies, through: :uploads
 
   delegate :role, to: :user_role
 
