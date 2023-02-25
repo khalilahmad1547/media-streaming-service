@@ -7,4 +7,5 @@ class UserRole < ApplicationRecord
 
   validates_associated :user
   validates_associated :role
+  validates_uniqueness_of :user, scope: :role
 end
