@@ -4,6 +4,8 @@ class Movie < ApplicationRecord
   has_one_attached :trailer_file
   has_one_attached :thumbnail_file
 
+  has_one :upload, dependent: :destroy
+  has_one :user, through: :upload
   has_many :movie_genres, dependent: :destroy
   has_many :genres, through: :movie_genres
 
